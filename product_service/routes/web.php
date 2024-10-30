@@ -13,6 +13,8 @@
 |
 */
 
-$router->get('/products', function () use ($router) {
-    return response()->json(['message' => 'Products Service']);
+$router->group(['prefix' => 'products'], function () use ($router) {
+    $router->get('/', 'ProductController@index');
+    $router->get('/{id}', 'ProductController@show');
+    $router->post('/', 'ProductController@store');
 });
