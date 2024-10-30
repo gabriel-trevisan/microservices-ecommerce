@@ -13,7 +13,9 @@
 |
 */
 
-$router->get('/customers', function () {
-    return response()->json(['message' => 'Customer Service']);
+$router->group(['prefix' => 'customers'], function () use ($router) {
+    $router->get('/', 'CustomerController@index');
+    $router->get('/{id}', 'CustomerController@show');
+    $router->post('/', 'CustomerController@store');
 });
 
