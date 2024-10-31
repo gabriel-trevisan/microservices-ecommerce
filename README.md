@@ -68,8 +68,11 @@ microservices-ecommerce/
 Cada serviço possui endpoints RESTful para CRUD de recursos. Alguns exemplos de endpoints:
 
 - **Cart Service**:
-  - `GET /cart` - Retorna o carrinho do usuário atual
-  - `POST /cart/items` - Adiciona um item ao carrinho
+  - `GET /cart/{customerId}` - Retorna o carrinho do usuário
+  - `POST /cart/{cartId}/items` - Adiciona um item ao carrinho
+  - `DELETE /cart/{cartId}/items/{itemId}` - Remove um item do carrinho
+  - `GET /cart/{cartId}/items` - Retorna os itens de um carrinho
+  - `PUT /cart/{cartId}/items/{itemId}/quantity` - Atualiza a quantidade de um item no carrinho
 
 - **Customer Service**:
   - `GET /customer/{id}` - Retorna as informações de um cliente
