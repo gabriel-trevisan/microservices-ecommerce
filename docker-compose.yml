@@ -94,3 +94,4 @@ volumes:
 
 networks:
   ecommerce_network:
+    driver: bridge
