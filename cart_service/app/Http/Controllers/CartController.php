@@ -129,7 +129,6 @@ class CartController extends Controller
             $response = $client->get("{$this->productServiceUrl}/products/{$productId}");
             return $response->getStatusCode() === 200;
         } catch (RequestException $e) {
-            dd($e->getMessage());
             return false;
         }
     }
