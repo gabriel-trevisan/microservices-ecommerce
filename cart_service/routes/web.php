@@ -13,6 +13,10 @@
 |
 */
 
-$router->get('/cart', function () use ($router) {
-    return response()->json(['message' => 'Cart Service']);
+$router->group(['prefix' => 'cart'], function () use ($router) {
+    $router->post('/{customerId}', 'CartController@create');
+    $router->post('/{cartId}/items', 'CartController@addItem');
+    $router->delete('/{cartId}/items/{itemId}', 'CartController@removeItem');
+    $router->get('/{cartId}/items', 'CartController@viewItems');
+    $router->put('/{cartId}/items/{itemId}/quantity', 'CartController@updateQuantity');
 });
